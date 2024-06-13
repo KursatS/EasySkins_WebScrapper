@@ -1,8 +1,6 @@
 <!-- ABOUT THE PROJECT -->
 ## Web Scrapper
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## Getting Started
 
 A fairly simple console application, I have shared the necessary comments above the code blocks.
