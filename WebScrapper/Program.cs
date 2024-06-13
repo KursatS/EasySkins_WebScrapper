@@ -16,8 +16,8 @@ IWebElement password = driver.FindElement(By.XPath("//*[@id=\"responsive_page_te
 IWebElement loginBtn = driver.FindElement(By.XPath("//*[@id=\"responsive_page_template_content\"]/div[1]/div[1]/div/div/div/div[2]/div/form/div[4]/button"));
 
 //Filling inputs (Use your non-protection steam account. It doesn't support 2FA login)
-eMail.SendKeys("vicrus374");
-password.SendKeys("Muzlupasta162");
+eMail.SendKeys("*****");
+password.SendKeys("*****");
 loginBtn.Click();
 Thread.Sleep(2000);
 
