@@ -5,6 +5,12 @@ using System.Drawing;
 //.txt file for keeping color history, path will be in root directory
 StreamWriter sw = new StreamWriter("colorLog.txt");
 
+//Getting inputs
+Console.WriteLine("Steam(non-2fa) email:");
+var steamEmail = Console.ReadLine();
+Console.WriteLine("Steam password:");
+var steamPassword =  Console.ReadLine();
+
 //Opening browser
 IWebDriver driver = new EdgeDriver();
 driver.Navigate().GoToUrl("https://steamcommunity.com/openid/loginform/?goto=%2Fopenid%2Flogin%3Fopenid.mode%3Dcheckid_setup%26openid.ns%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%26openid.identity%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26openid.claimed_id%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26openid.return_to%3Dhttps%253A%252F%252Fauth.csgoskins.link%252Freturn%26openid.realm%3Dhttps%253A%252F%252Fauth.csgoskins.link%252F%3Fopenid.mode%3Dcheckid_setup%26openid.ns%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%26openid.identity%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26openid.claimed_id%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26openid.return_to%3Dhttps%253A%252F%252Fauth.csgoskins.link%252Freturn%26openid.realm%3Dhttps%253A%252F%252Fauth.csgoskins.link%252F");
@@ -16,8 +22,8 @@ IWebElement password = driver.FindElement(By.XPath("//*[@id=\"responsive_page_te
 IWebElement loginBtn = driver.FindElement(By.XPath("//*[@id=\"responsive_page_template_content\"]/div[1]/div[1]/div/div/div/div[2]/div/form/div[4]/button"));
 
 //Filling inputs (Use your non-protection steam account. It doesn't support 2FA login)
-eMail.SendKeys("*****");
-password.SendKeys("*****");
+eMail.SendKeys(steamEmail);
+password.SendKeys(steamPassword);
 loginBtn.Click();
 Thread.Sleep(2000);
 
@@ -25,6 +31,7 @@ Thread.Sleep(2000);
 IWebElement loginBtn2 = driver.FindElement(By.XPath("//*[@id=\"imageLogin\"]"));
 loginBtn2.Click();
 Thread.Sleep(2000);
+Console.Clear();
 
 //Manual navigating to site
 driver.Navigate().GoToUrl("https://easyskins.com/game/twist");
